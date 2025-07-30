@@ -1,4 +1,4 @@
-# Base64C
+# Base64Perf
 
 A faster base64 encoding/decoding library for Python, implemented in C with SSSE3 and VSX optimizations.
 
