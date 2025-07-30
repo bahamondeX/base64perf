@@ -38,12 +38,12 @@ base64perf_module = Extension('base64perf.base64perf', **get_extension_kwargs())
 
 setup(
     name='base64perf',
-    version='0.0.9',
+    version='0.0.10',
     description='Fast Base64 encoding/decoding with SSE2 and VSX optimizations',
     long_description=open('README.md', 'r', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     author='Oscar Bahamonde',
-    author_email="oscar.bahamonde@indiecloud.co",
+    author_email="oscar.bahamonde@pucp.pe",
     url='https://github.com/bahamondex/base64perf',
     ext_modules=[base64perf_module],
     packages=['base64perf'],
