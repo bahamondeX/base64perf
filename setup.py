@@ -34,10 +34,10 @@ def get_extension_kwargs():
         'extra_link_args': extra_link_args,
     }
 
-base64c_module = Extension('base64perf.base64c', **get_extension_kwargs())
+base64perf_module = Extension('base64perf.base64perf', **get_extension_kwargs())
 
 setup(
-    name='base64c',
+    name='base64perf',
     version='0.0.9',
     description='Fast Base64 encoding/decoding with SSE2 and VSX optimizations',
     long_description=open('README.md', 'r', encoding='utf-8').read(),
@@ -45,8 +45,8 @@ setup(
     author='Oscar Bahamonde',
     author_email="oscar.bahamonde@indiecloud.co",
     url='https://github.com/bahamondex/base64perf',
-    ext_modules=[base64c_module],
-    packages=['base64c'],
+    ext_modules=[base64perf_module],
+    packages=['base64perf'],
     package_dir={'base64perf': 'src/base64perf'},    
     include_package_data=True,
     classifiers=[

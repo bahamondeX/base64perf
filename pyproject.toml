@@ -1,6 +1,6 @@
 [project]
 name = "base64perf"
-version = "0.0.9"
+version = "0.0.11"
 description = "Fast Base64 encoding/decoding with SSE2 and VSX optimizations"
 authors = [{name = "Oscar Bahamonde", email = "oscar.bahamonde@indiecloud.co"}]
 license = {text = "MIT"}

@@ -1,4 +1,4 @@
-import base64c
+import base64perf
 import base64
 import time
 import os
@@ -56,15 +56,15 @@ def performance_results():
 def test_correctness(func_name, test_data):
     for name, data in test_data:
         stdlib_func = getattr(base64, func_name)
-        base64c_func = getattr(base64c, func_name)
+        base64perf_func = getattr(base64perf, func_name)
 
         if "decode" in func_name:
             data = getattr(base64, func_name.replace("decode", "encode"))(data)
 
         stdlib_result = stdlib_func(data)
-        base64c_result = base64c_func(data)
+        base64perf_result = base64perf_func(data)
 
-        assert stdlib_result == base64c_result, f"{func_name} failed for {name}"
+        assert stdlib_result == base64perf_result, f"{func_name} failed for {name}"
 
 # Performance tests
 @pytest.mark.parametrize(
@@ -78,7 +78,7 @@ def test_correctness(func_name, test_data):
 def test_performance(func_name, test_data, performance_results):
     for name, data in test_data:
         stdlib_func = getattr(base64, func_name)
-        base64c_func = getattr(base64c, func_name)
+        base64perf_func = getattr(base64perf, func_name)
 
         if "decode" in func_name:
             data = getattr(base64, func_name.replace("decode", "encode"))(data)
@@ -87,15 +87,15 @@ def test_performance(func_name, test_data, performance_results):
         iterations = 10 if len(data) > 100000 else 100
 
         stdlib_time = benchmark(stdlib_func, data, iterations)
-        base64c_time = benchmark(base64c_func, data, iterations)
-        speedup = stdlib_time / base64c_time
+        base64perf_time = benchmark(base64perf_func, data, iterations)
+        speedup = stdlib_time / base64perf_time
 
         # Store results in the performance_results fixture
         if name not in performance_results:
             performance_results[name] = {}
         performance_results[name][func_name] = {
             "stdlib_time": stdlib_time,
-            "base64c_time": base64c_time,
+            "base64perf_time": base64perf_time,
             "speedup": speedup,
         }
 

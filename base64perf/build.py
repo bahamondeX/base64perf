@@ -12,14 +12,14 @@ def build(setup_kwargs):
     print("Starting build process...")
     
     # Define the C extension module
-    base64c_module = Extension(
+    base64perf_module = Extension(
         'base64perf.base64perf',
         sources=[os.path.join('base64perf', 'base64perf.c')],
         extra_compile_args=['-O3', '-msse2'] if sys.platform != "darwin" else ['-O3']
     )
 
     # Create a distribution with our extension module
-    dist = Distribution({'name': 'base64perf', 'ext_modules': [base64c_module]})
+    dist = Distribution({'name': 'base64perf', 'ext_modules': [base64perf_module]})
     
     # Ensure the build_ext command is available
     dist.cmdclass['build_ext'] = BuildExt
@@ -37,7 +37,7 @@ def build(setup_kwargs):
 
     # Update setup_kwargs
     setup_kwargs.update({
-        'ext_modules': [base64c_module],
+        'ext_modules': [base64perf_module],
         'cmdclass': {'build_ext': BuildExt},
         'package_data': {'base64perf': ['*.so', '*.pyd']},
         'include_package_data': True,

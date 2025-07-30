@@ -1,5 +1,5 @@
-#ifndef BASE64C_H
-#define BASE64C_H
+#ifndef base64perf_H
+#define base64perf_H
 
 #include <Python.h>
 
@@ -22,9 +22,9 @@ extern const uint8_t base64_decode_table[256];
 
 // Module definition
 extern PyMethodDef Base64Methods[];
-extern struct PyModuleDef base64cmodule;
+extern struct PyModuleDef base64perfmodule;
 
 // Module initialization function
-PyMODINIT_FUNC PyInit_base64c(void);
+PyMODINIT_FUNC PyInit_base64perf(void);
 
-#endif // BASE64C_H
+#endif // base64perf_H

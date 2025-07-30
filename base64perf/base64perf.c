@@ -187,14 +187,14 @@ static PyMethodDef Base64Methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-static struct PyModuleDef base64cmodule = {
+static struct PyModuleDef base64perfmodule = {
     PyModuleDef_HEAD_INIT,
-    "base64c",
+    "base64perf",
     "Fast Base64 encoding and decoding using AVX2.",
     -1,
     Base64Methods
 };
 
-EXPORT PyMODINIT_FUNC PyInit_base64c(void) {
-    return PyModule_Create(&base64cmodule);
+EXPORT PyMODINIT_FUNC PyInit_base64perf(void) {
+    return PyModule_Create(&base64perfmodule);
 }
